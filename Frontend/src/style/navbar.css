@@ -1,0 +1,220 @@
+/* Modern Navbar with neon effect and glass morphism */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: rgba(13, 17, 23, 0.95);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(72, 149, 239, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Neon Logo Style */
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #4895ef,
+        0 0 20px #4895ef,
+        0 0 40px #4895ef;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.logo:hover {
+    color: #4895ef;
+    text-shadow: 0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 40px #4895ef,
+        0 0 80px #4895ef;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: none;
+    gap: 1.5rem;
+}
+
+/* Mobile Navigation */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(13, 17, 23, 0.98);
+    padding: 1.5rem;
+    gap: 1rem;
+    animation: fadeIn 0.3s ease-out;
+    border-bottom: 1px solid rgba(72, 149, 239, 0.2);
+}
+
+/* Nav Link Styling */
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    letter-spacing: 1px;
+}
+
+/* Hover Effect */
+.nav-link:hover {
+    background: rgba(72, 149, 239, 0.1);
+    color: #4895ef;
+    box-shadow: 0 0 15px rgba(72, 149, 239, 0.3);
+}
+
+/* Active Link Style */
+.nav-link.active {
+    background: linear-gradient(45deg,
+            rgba(72, 149, 239, 0.2),
+            rgba(72, 149, 239, 0.1));
+    color: #4895ef;
+    box-shadow: 0 0 20px rgba(72, 149, 239, 0.2);
+}
+
+/* Menu Button */
+.menu-button {
+    background: transparent;
+    border: 2px solid rgba(72, 149, 239, 0.3);
+    color: #4895ef;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+    background: rgba(72, 149, 239, 0.1);
+    border-color: #4895ef;
+    box-shadow: 0 0 15px rgba(72, 149, 239, 0.3);
+}
+
+.menu-button svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+/* Scrolled Navbar */
+.scroll-navbar {
+    background: rgba(13, 17, 23, 0.98);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .navbar {
+        padding: 1.25rem 2rem;
+    }
+
+    .menu-button {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background: none;
+        padding: 0;
+    }
+
+    .nav-link {
+        position: relative;
+        margin: 0 0.25rem;
+    }
+
+    /* Desktop Hover Effect */
+    .nav-link::before {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #4895ef;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+        box-shadow: 0 0 10px #4895ef;
+    }
+
+    .nav-link:hover::before {
+        width: 80%;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Gradient Border Effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 1px;
+    background: linear-gradient(45deg, #4895ef, #4361ee);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(13, 17, 23, 0.95);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4895ef;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4361ee;
+}
