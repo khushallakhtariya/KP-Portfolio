@@ -23,7 +23,7 @@ const About = () => {
                             and collaborate with forward-thinking teams.
                         </p>
                     </div>
-                    
+
                     {/* Right Side - Personal Info */}
                     <div className="personal-info">
                         <div className="info-grid">
