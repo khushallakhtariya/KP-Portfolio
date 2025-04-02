@@ -32,7 +32,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/contact",
+        "https://kp-portfolio-blue.vercel.app/contact",
         formData
       );
       toast.success(response.data.success);
