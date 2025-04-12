@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "../style/contact.css";
 import { ToastContainer, toast } from "react-toastify";
 import { FaPaperPlane } from "react-icons/fa";
@@ -28,18 +27,17 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/contact",
-        formData
-      );
-      toast.success(response.data.success);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } catch (error) {
-      toast.error(error.response?.data?.error || "Something went wrong!");
-    }
+
+    // Show success message without API call
+    toast.success("Message sent successfully!");
+
+    // Reset form
+    setFormData({ name: "", email: "", subject: "", message: "" });
+
+    // Log form data to console (for demonstration purposes)
+    console.log("Form submitted:", formData);
   };
 
   return (
