@@ -1,48 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import "../style/contact.css";
-import { ToastContainer, toast } from "react-toastify";
-import { FaPaperPlane } from "react-icons/fa";
-import "react-toastify/dist/ReactToastify.css";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import {
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaGithub,
+} from "react-icons/fa";
 
 const contactInfo = {
   email: "khushallakhatariya@gmail.com",
   phone: "+91 6355083812",
-  location: "Aemdabad, Gujarat",
+  location: "Ahmedabad, Gujarat",
   socials: [
-    { name: "Facebook", url: "https://facebook.com" },
-    { name: "Twitter", url: "https://twitter.com" },
-    { name: "LinkedIn", url: "https://linkedin.com" },
+    { name: "LinkedIn", url: "https://linkedin.com", icon: <FaLinkedinIn /> },
+    { name: "GitHub", url: "https://github.com", icon: <FaGithub /> },
+    { name: "Twitter", url: "https://twitter.com", icon: <FaTwitter /> },
+    { name: "Facebook", url: "https://facebook.com", icon: <FaFacebookF /> },
   ],
 };
+
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Show success message without API call
-    toast.success("Message sent successfully!");
-
-    // Reset form
-    setFormData({ name: "", email: "", subject: "", message: "" });
-
-    // Log form data to console (for demonstration purposes)
-    console.log("Form submitted:", formData);
-  };
-
   return (
     <section className="contact-section" id="contact">
-      <ToastContainer />
       <div className="contact-container">
         <h2 className="section-title">
           <FaEnvelope className="title-icon" />
@@ -65,7 +47,7 @@ const Contact = () => {
                 <FaMapMarkerAlt className="info-icon" />
                 <span>{contactInfo.location}</span>
               </div>
-
+              {/* 
               <div className="social-links">
                 {contactInfo.socials.map((social, index) => (
                   <a
@@ -75,60 +57,23 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="social-link"
                     aria-label={social.name}
-                  ></a>
+                    title={social.name}
+                  >
+                    {social.icon}
+                  </a>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
+        </div>
 
-          <div className="contact-form-container">
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  name="message"
-                  placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="5"
-                ></textarea>
-              </div>
-              <button type="submit" className="submit-btn">
-                <FaPaperPlane className="btn-icon" />
-                Send Message
-              </button>
-            </form>
-          </div>
+        <div className="contact-note">
+          <p>
+            If you're interested in working together or have any questions about
+            my services, feel free to reach out via email. I'll get back to you
+            as soon as possible to discuss how we can collaborate on your next
+            project.
+          </p>
         </div>
       </div>
     </section>

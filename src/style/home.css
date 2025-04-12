@@ -134,29 +134,25 @@
 /* Button Styles */
 .button-group {
     display: flex;
-    gap: 1.5rem;
+    justify-content: flex-start;
     margin-bottom: 2.5rem;
 }
 
-.primary-btn,
-.secondary-btn {
-    padding: 0.75rem 2rem;
+.primary-btn {
+    padding: 0.85rem 2.5rem;
     border-radius: 8px;
     font-size: 1.1rem;
     font-weight: 600;
     transition: all 0.3s ease;
     cursor: pointer;
-}
-
-.primary-btn {
-    background: #4895ef;
+    background: linear-gradient(45deg, #4895ef, #4361ee);
     color: white;
     border: none;
     box-shadow: 0 0 20px rgba(72, 149, 239, 0.3);
 }
 
 .primary-btn:hover {
-    background: #4361ee;
+    background: linear-gradient(45deg, #4361ee, #3a0ca3);
     transform: translateY(-2px);
     box-shadow: 0 0 25px rgba(72, 149, 239, 0.5);
 }
@@ -230,7 +226,6 @@
 
     .button-group {
         justify-content: center;
-        gap: 1rem;
     }
 
     .social-links {
@@ -283,17 +278,16 @@
     }
 
     .button-group {
-        flex-direction: column;
         width: 100%;
-        max-width: 280px;
-        margin: 1.5rem auto;
+        margin: 1.5rem 0 2rem;
     }
 
-    .primary-btn,
-    .secondary-btn {
+    .primary-btn {
+        padding: 0.7rem 2rem;
         width: 100%;
-        padding: 0.875rem 1.5rem;
-        font-size: 1rem;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
     }
 
     .social-links {
